@@ -1,0 +1,19 @@
+name: stand-monitor
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  ci: 
+    runs-on: ubuntu-slim
+    steps: 
+        - name: Set up Python
+          uses: actions/setup-python@v5
+          with: 
+            python-version: '3.12'
+        - name: Run check compose
+          run: python3 ./check_compose.py
