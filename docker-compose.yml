@@ -35,6 +35,7 @@ services:
       - "127.0.0.1:8082:3000"
     volumes:
       - grafana:/var/lib/grafana
+      - ./dashbaords/dashboard.json:/var/lib/grafana/dashboards/dashboard.json
 
 volumes:
   grafana:
