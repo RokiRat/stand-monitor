@@ -5,12 +5,12 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     restart: unless-stopped
- #   healthcheck:
- #     test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
- #     interval: 30s
- #     timeout: 10s
- #    retries: 3
- #     start_period: 40s
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   prometheus:
     image: prom/prometheus:v3.13.4
     container_name: prometheus
